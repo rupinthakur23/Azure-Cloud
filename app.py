@@ -6,7 +6,7 @@ import random
 
 
 app = Flask(__name__)
-conn=db.connect("Driver={ODBC Driver 13 for SQL Server};Server=tcp:rupinthakur23.database.windows.net,"
+conn=db.connect("Driver={ODBC Driver 17 for SQL Server};Server=tcp:rupinthakur23.database.windows.net,"
                 "1433;Database=earth;Uid=rupin@rupinthakur23;Pwd=Kanu1484@23;Encrypt=yes;TrustServerCertificate=no;"
                 "Connection Timeout=30;")
 
