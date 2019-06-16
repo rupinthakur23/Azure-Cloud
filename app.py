@@ -110,5 +110,45 @@ def query_db_l_execute():
         result = "error try again"
     return render_template('location.html', total_time=total_time)
 
+@app.route('/question3', methods=['GET'])
+def query_db_23():
+    return render_template('question3.html', )
+
+
+@app.route('/question3_execute', methods=['GET'])
+def query_db_23_execute():
+    qcount = request.args.get('qcount')
+    qcount = int(qcount)
+    lmag =request.args.get('lmag')
+    hmag = request.args.get('hmag')
+    sdate = request.args.get('sdate')
+    edate= request.args.get('edate')
+    print(lmag)
+    print(hmag)
+    total_time=0
+
+    try:
+        if request.args.get('form') == 'no':
+            startTime = time.perf_counter()
+            print(startTime)
+
+            while qcount != 0:
+                sql = "SELECT COUNT(*) FROM earthquake.quakes where mag >"+ lmag+ " and mag<" + hmag
+
+                cursor = conn.cursor()
+                result = cursor.execute(sql).fetchall()
+                qcount = qcount - 1
+            endTime = time.perf_counter()
+            total_time = endTime - startTime
+        elif request.args.get('form') == 'yes':
+            pass
+
+    except:
+        result = "error try again"
+    return render_template('question3.html', total_time=total_time)
+
+
+
+
 if __name__ == '__main__':
   app.run()
