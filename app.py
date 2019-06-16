@@ -3,13 +3,31 @@ from flask import Flask, request, render_template
 import pyodbc as db
 import time
 import random
-
+import redis
 
 app = Flask(__name__)
 conn=db.connect("Driver={ODBC Driver 17 for SQL Server};Server=tcp:rupinthakur23.database.windows.net,"
                 "1433;Database=earth;Uid=rupin@rupinthakur23;Pwd=Kanu1484@23;Encrypt=yes;TrustServerCertificate=no;"
                 "Connection Timeout=30;")
-
+redis_connect_dict = {}
+redis_connect_dict['host'] = 'rupin.redis.cache.windows.net'
+redis_connect_dict['port'] = 6380
+redis_connect_dict['db'] = 0
+redis_connect_dict['password'] = 'EU0UzYH8FYlF1mnEX+NSUsk1xh1FDVemL2vrassLxBc='
+r = redis.StrictRedis(redis_connect_dict['host'],
+                      redis_connect_dict['port'],
+                      redis_connect_dict['db'],
+                      redis_connect_dict['password'],
+                      ssl=True)
+def redis_query(query):
+    if r.get(query) == None:
+        cursor = conn.cursor()
+        rcount = cursor.execute(query).fetchall()
+        r.set(query, rcount[0][0])
+        return None
+    else:
+        rcount= r.get(query)
+        return rcount
 @app.route('/')
 def hello_world():
 
@@ -29,7 +47,7 @@ def query_db():
 def query_db_execute():
     mag = request.args.get('mag')
     oper = request.args.get('oper')
-
+    total_time=0
 
 
     try:
@@ -46,7 +64,16 @@ def query_db_execute():
             result = result[0][0]
             total_time = endTime-startTime
         elif request.args.get('form') == 'yes':
-            pass
+            startTime = time.perf_counter()
+            result = redis_query(sql)
+            endTime = time.perf_counter()
+            if result != None:
+                result = str(result)
+                result = result.replace("'", '')
+                result = result.split('b')
+                result = result[-1]
+            total_time = endTime - startTime
+
     except:
         result = "error try again"
     # finally:
@@ -65,6 +92,8 @@ def query_db_2_execute():
     qcount = int(qcount)
     lmag = float(request.args.get('lmag'))
     hmag = float(request.args.get('hmag'))
+
+    total_time=0
     try:
         if request.args.get('form') == 'no':
             startTime = time.perf_counter()
@@ -76,7 +105,17 @@ def query_db_2_execute():
             endTime = time.perf_counter()
             total_time = endTime - startTime
         elif request.args.get('form') == 'yes':
-            pass
+            startTime = time.perf_counter()
+            sql = "SELECT COUNT(*) FROM earthquake.quakes where mag =" + str(round(random.uniform(lmag, hmag), 1))
+            result = redis_query(sql)
+            endTime = time.perf_counter()
+            if result != None:
+                result = str(result)
+                result = result.replace("'", '')
+                result = result.split('b')
+                result = result[-1]
+            total_time = endTime - startTime
+
 
     except:
         result = "error try again"
@@ -104,7 +143,17 @@ def query_db_l_execute():
             endTime = time.perf_counter()
             total_time = endTime - startTime
         elif request.args.get('form') == 'yes':
-            pass
+            startTime = time.perf_counter()
+            sql = "SELECT COUNT(*) FROM earthquake.quakes where place LIKE '%place%' "
+            result = redis_query(sql)
+            endTime = time.perf_counter()
+            if result != None:
+                result = str(result)
+                result = result.replace("'", '')
+                result = result.split('b')
+                result = result[-1]
+            total_time = endTime - startTime
+
 
     except:
         result = "error try again"
@@ -141,7 +190,16 @@ def query_db_23_execute():
             endTime = time.perf_counter()
             total_time = endTime - startTime
         elif request.args.get('form') == 'yes':
-            pass
+            startTime = time.perf_counter()
+            sql = "SELECT COUNT(*) FROM earthquake.quakes where mag >"+ lmag+ " and mag<" + hmag
+            result = redis_query(sql)
+            endTime = time.perf_counter()
+            if result != None:
+                result = str(result)
+                result = result.replace("'", '')
+                result = result.split('b')
+                result = result[-1]
+            total_time = endTime - startTime
 
     except:
         result = "error try again"
