@@ -103,7 +103,6 @@ def query_db_2_execute():
                 sql = "SELECT * FROM earthquake.quakes where mag>3.5"
                 cursor = conn.cursor()
                 rows = cursor.execute(sql).fetchall()
-                print(rows)
                 qcount = qcount - 1
             endTime = time.perf_counter()
             total_time = endTime - startTime
@@ -129,7 +128,7 @@ def query_db_2_execute():
 
     except:
         result = "error try again"
-    return render_template('question2.html', total_time=total_time, data=rows)
+    return render_template('question2.html',endTime=endTime ,total_time=total_time, result=rows)
 
 @app.route('/location', methods=['GET'])
 def query_db_l():
