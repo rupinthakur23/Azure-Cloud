@@ -92,18 +92,27 @@ def query_db_2_execute():
     qcount = int(qcount)
     lmag = float(request.args.get('lmag'))
     hmag = float(request.args.get('hmag'))
+    rows = []
 
     total_time=0
+
     try:
         if request.args.get('form') == 'no':
             startTime = time.perf_counter()
             while qcount != 0:
-                sql = "SELECT COUNT(*) FROM earthquake.quakes where mag >=2.5 and mag <=3.5"
+                sql = "SELECT * FROM earthquake.quakes where mag>3.5"
                 cursor = conn.cursor()
-                result = cursor.execute(sql).fetchall()
+                rows = cursor.execute(sql).fetchall()
+                print(rows)
                 qcount = qcount - 1
             endTime = time.perf_counter()
             total_time = endTime - startTime
+
+
+
+
+
+
         elif request.args.get('form') == 'yes':
             startTime = time.perf_counter()
             sql = "SELECT COUNT(*) FROM earthquake.quakes where mag =" + str(round(random.uniform(lmag, hmag), 1))
@@ -117,9 +126,10 @@ def query_db_2_execute():
             total_time = endTime - startTime
 
 
+
     except:
         result = "error try again"
-    return render_template('question2.html', total_time=total_time)
+    return render_template('question2.html', total_time=total_time, data=rows)
 
 @app.route('/location', methods=['GET'])
 def query_db_l():
@@ -136,7 +146,7 @@ def query_db_l_execute():
         if request.args.get('form') == 'no':
             startTime = time.perf_counter()
             while qcount != 0:
-                sql = "SELECT COUNT(*) FROM earthquake.quakes where place LIKE '%place%' "
+                sql = "SELECT * FROM earthquake.quakes where place LIKE '%place%' "
                 cursor = conn.cursor()
                 result = cursor.execute(sql).fetchall()
                 qcount = qcount - 1

@@ -18,9 +18,59 @@
 </form>
 
 
+	<table>
+		<tr>
+
+		    <th>Mag</th>
+
+            <th>Place</th>
+            <th>Date</th>
+		</tr>
+
+
+		{% for rows in data %}
+			<tr>
+
+			<td>{{ rows.MAG}}</td>
+
+            <td>{{ rows.place }}</td>
+             <td>{{ rows.date }}</td>
+
+
+
+			</tr>
+		{% endfor %}
+	</table>
+
+
 {% if total_time %}
     <p>Time Taken</p>
     <h1> {{total_time}} </h1>
 {#    #}
 {% endif %}
 {#<embed type="image/svg+xml" src= {{ chart|safe }} />#}
+
+
+	<table>
+		<tr>
+		    <th>Date</th>
+
+		    <th>Mag</th>
+
+            <th>Place</th>
+
+		</tr>
+
+
+		{% for rows in data %}
+			<tr>
+			<td>{{ rows.date }}</td>
+
+			<td>{{ rows.MAG}}</td>
+            <
+            <td>{{ rows.place }}</td>
+
+
+			</tr>
+		{% endfor %}
+	</table>
