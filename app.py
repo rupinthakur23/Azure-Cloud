@@ -98,7 +98,7 @@ def query_db_2_execute():
         if request.args.get('form') == 'no':
             startTime = time.perf_counter()
             while qcount != 0:
-                sql = "SELECT COUNT(*) FROM earthquake.quakes where mag =" + str(round(random.uniform(lmag, hmag), 1))
+                sql = "SELECT COUNT(*) FROM earthquake.quakes where mag >=2.5 and mag <=3.5"
                 cursor = conn.cursor()
                 result = cursor.execute(sql).fetchall()
                 qcount = qcount - 1

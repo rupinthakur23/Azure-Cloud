@@ -4,7 +4,7 @@
     <list default="true" id="69225bfc-d791-4e94-bda6-c4955a576738" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/question2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/question2.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="193" column="96" selection-start-line="193" selection-start-column="96" selection-end-line="193" selection-end-column="96" />
+            <state relative-caret-position="272">
+              <caret line="100" column="92" lean-forward="true" selection-start-line="100" selection-start-column="92" selection-end-line="100" selection-end-column="92" />
               <folding>
                 <element signature="e#26#75#0" expanded="true" />
               </folding>
@@ -35,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/question2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -98,12 +98,12 @@
       <list>
         <option value="$PROJECT_DIR$/templates/my-form.html" />
         <option value="$PROJECT_DIR$/templates/question1.html" />
-        <option value="$PROJECT_DIR$/templates/question2.html" />
         <option value="$PROJECT_DIR$/templates/common.html" />
         <option value="$PROJECT_DIR$/templates/location.html" />
         <option value="$PROJECT_DIR$/templates/question3.html" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/templates/question2.html" />
       </list>
     </option>
   </component>
@@ -125,11 +125,6 @@
             <path>
               <item name="azure" type="b2602c69:ProjectViewProjectNode" />
               <item name="azure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="azure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="azure" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -190,18 +185,22 @@
       <workItem from="1560630971494" duration="1675000" />
       <workItem from="1560635816827" duration="8692000" />
       <workItem from="1560660066208" duration="7276000" />
-      <workItem from="1560724958649" duration="635000" />
+      <workItem from="1560724958649" duration="1494000" />
+      <workItem from="1560731555956" duration="406000" />
+      <workItem from="1560731982090" duration="226000" />
+      <workItem from="1560744420543" duration="614000" />
+      <workItem from="1560888205382" duration="838000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24631000" />
+    <option name="totallyTimeSpent" value="27574000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26675603" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28150135" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -228,7 +227,7 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/azure$azure.coverage" NAME="azure Coverage Results" MODIFIED="1560725505585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/azure$azure.coverage" NAME="azure Coverage Results" MODIFIED="1560891290772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ptvs_virtualenv_proxy.py">
@@ -237,8 +236,8 @@
     <entry file="file://$PROJECT_DIR$/templates/my-form.html" />
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="193" column="96" selection-start-line="193" selection-start-column="96" selection-end-line="193" selection-end-column="96" />
+        <state relative-caret-position="272">
+          <caret line="100" column="92" lean-forward="true" selection-start-line="100" selection-start-column="92" selection-end-line="100" selection-end-column="92" />
           <folding>
             <element signature="e#26#75#0" expanded="true" />
           </folding>
@@ -249,13 +248,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/question2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -284,6 +276,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/question2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
