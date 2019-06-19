@@ -1,86 +1,9 @@
 {%  include 'common.html' %}
 
 <form action="/question2_execute" method="get">
-    number of queries: <input type="text" name="qcount">
-    latitude: <input type="text" name="lmag">
-    Longitude: <input type="text" name="hmag">
-    with cache?: <select name="form">
-                      <option value="no">no</option>
-                      <option value="yes">yes</option>
-                    </select>
-    <input type="submit" value="Execute" />
-{#    <input type="submit" name= "form" value="ExecuteCache" />#}
+    <input type="submit" value="Execute">
 </form>
 
-
-<form action="/clear_redis_execute" method="get">
-    <input type="submit" value="Execute" />
-</form>
-
-
-	<table>
-		<tr>
-
-		    <th>Mag</th>
-
-            <th>Place</th>
-            <th>Date</th>
-		</tr>
-
-
-		{% for rows in data %}
-			<tr>
-
-			<td>{{ rows.MAG}}</td>
-
-            <td>{{ rows.place }}</td>
-             <td>{{ rows.date }}</td>
-
-
-
-			</tr>
-		{% endfor %}
-	</table>
-
-
-{% if total_time %}
-    <p>Time Taken</p>
-    <h1> {{total_time}} </h1>
-
-
-{#    #}
+{% if chart%}
+    <embed type="image/svg+xml" src= {{ chart|safe }} />
 {% endif %}
-
-{% if endTime %}
-    <p>Time Taken</p>
-    <h1> {{endTime}} </h1>
-
-
-{#    #}
-{% endif %}
-{#<embed type="image/svg+xml" src= {{ chart|safe }} />#}
-
-
-	<table>
-		<tr>
-		    <th>Date</th>
-
-		    <th>Mag</th>
-
-            <th>Place</th>
-
-		</tr>
-
-
-		{% for rows in data %}
-			<tr>
-			<td>{{ rows.date }}</td>
-
-			<td>{{ rows.MAG}}</td>
-            <
-            <td>{{ rows.place }}</td>
-
-
-			</tr>
-		{% endfor %}
-	</table>
