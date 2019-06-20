@@ -163,5 +163,23 @@ def question10_execute():
     bar_chart.add(range[2], answers[2])
     return render_template('question5.html', chart=bar_chart.render_data_uri())
 
+
+@app.route('/question6', )
+def question101():
+    return render_template('question6.html')
+
+
+@app.route('/question6_execute',  methods=['GET'])
+def question101_execute():
+
+    rows=[]
+    cursor = conn.cursor()
+    sql = "Select StateName from earthquake.voting where convert(varchar, TotalPop) >'5000' or convert(varchar,TotalPop) >'40000'"
+
+    result = cursor.execute(sql).fetchall()
+
+    return render_template('question6.html',data=result)
+
+
 if __name__ == '__main__':
   app.run()
