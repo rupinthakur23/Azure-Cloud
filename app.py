@@ -94,10 +94,7 @@ def question7():
 @app.route('/question4_execute',  methods=['GET'])
 def question7_execute():
     bar_chart = pygal.Bar(width=1000, height=500)
-    year = str(request.args.get('year'))
 
-
-    # year = 'y_'+year
     lrange1 = request.args.get('lrange1')
     hrange1 = request.args.get('hrange1')
     lrange2 = request.args.get('lrange2')
@@ -107,9 +104,10 @@ def question7_execute():
     range = [lrange1 +'-' + hrange1, lrange2 +'-' + hrange2, lrange3 +'-' + hrange3]
     print(range)
     cursor = conn.cursor()
-    sql = "select count(*) from earthquake.population where [" + year + "]between " + "'" + lrange1 + "'" + " and " + "'" + hrange1 + "'"
-    sql1 = "select count(*) from earthquake.population where [" + year + "] between " + "'" + lrange2 + "'" + " and " + "'" + hrange2 + "'"
-    sql2 = "select count(*) from earthquake.population where [" + year + "] between " + "'" + lrange3 + "'" + " and " + "'" + hrange3 + "'"
+    sql = "select count(*) from earthquake.voting where convert(varchar,Registered) between " + "'" + lrange1 + "'" + " and " + "'" + hrange1 + "'"
+    sql1 = "select count(*) from earthquake.voting where  convert(varchar,Registered) between " + "'" + lrange2 + "'" + " and " + "'" + hrange2 + "'"
+    sql2 = "select count(*) from earthquake.voting where convert(varchar,Registered) between " + "'" + lrange3 + "'" + " and " + "'" + hrange3 + "'"
+
     print(sql)
     result = cursor.execute(sql).fetchall()
     print(result)
@@ -190,7 +188,7 @@ def question1011_execute():
 
     rows=[]
     cursor = conn.cursor()
-    sql = "Select StateName from earthquake.voting where convert(varchar, TotalPop) >'10000' or convert(varchar,TotalPop) <'40000'"
+    sql = "Select StateName from earthquake.voting where convert(varchar, TotalPop) >'100000' or convert(varchar,TotalPop) <'400000'"
 
     result = cursor.execute(sql).fetchall()
 
