@@ -174,12 +174,27 @@ def question101_execute():
 
     rows=[]
     cursor = conn.cursor()
-    sql = "Select StateName from earthquake.voting where convert(varchar, TotalPop) >'5000' or convert(varchar,TotalPop) >'40000'"
+    sql = "Select StateName from earthquake.voting where convert(varchar, TotalPop) >'5000' or convert(varchar,TotalPop) <'10000'"
 
     result = cursor.execute(sql).fetchall()
 
     return render_template('question6.html',data=result)
 
+@app.route('/question7', )
+def question1011():
+    return render_template('question7.html')
+
+
+@app.route('/question7_execute',  methods=['GET'])
+def question1011_execute():
+
+    rows=[]
+    cursor = conn.cursor()
+    sql = "Select StateName from earthquake.voting where convert(varchar, TotalPop) >'10000' or convert(varchar,TotalPop) <'40000'"
+
+    result = cursor.execute(sql).fetchall()
+
+    return render_template('question7.html',data=result)
 
 if __name__ == '__main__':
   app.run()
